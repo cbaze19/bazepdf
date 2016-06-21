@@ -1,0 +1,14 @@
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Debug\pdfapp.exe.config
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Debug\pdfapp.exe
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Debug\pdfapp.pdb
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.csprojResolveAssemblyReference.cache
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.MainWindow.resources
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.Properties.Resources.resources
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.csproj.GenerateResource.Cache
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.exe
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.pdb
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Debug\Interop.AcroPDFLib.dll
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\Interop.AcroPDFLib.dll
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Debug\pdfapp.csproj.ResolveComReference.cache

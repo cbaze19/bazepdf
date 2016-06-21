@@ -1,0 +1,9 @@
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Release\pdfapp.exe.config
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Release\pdfapp.exe
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\bin\Release\pdfapp.pdb
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.MainWindow.resources
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.Properties.Resources.resources
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.csproj.GenerateResource.Cache
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.exe
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.pdb
+C:\Users\cbaze\Documents\Work\Projects\pdfapp\pdfapp\obj\Release\pdfapp.csprojResolveAssemblyReference.cache
