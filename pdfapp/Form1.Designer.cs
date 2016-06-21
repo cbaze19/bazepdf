@@ -42,8 +42,12 @@ namespace pdfapp
             this.menu_close = new System.Windows.Forms.ToolStripMenuItem();
             this.pdfViewer = new AxAcroPDFLib.AxAcroPDF();
             this.bNextPage = new System.Windows.Forms.Button();
+            this.gbPDF = new System.Windows.Forms.GroupBox();
+            this.bPrevPage = new System.Windows.Forms.Button();
+            this.cbPageSelected = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewer)).BeginInit();
+            this.gbPDF.SuspendLayout();
             this.SuspendLayout();
             // 
             // bSelectPDF
@@ -100,7 +104,7 @@ namespace pdfapp
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(727, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(372, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,30 +134,61 @@ namespace pdfapp
             // pdfViewer
             // 
             this.pdfViewer.Enabled = true;
-            this.pdfViewer.Location = new System.Drawing.Point(377, 38);
+            this.pdfViewer.Location = new System.Drawing.Point(6, 18);
             this.pdfViewer.Name = "pdfViewer";
             this.pdfViewer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewer.OcxState")));
-            this.pdfViewer.Size = new System.Drawing.Size(338, 374);
+            this.pdfViewer.Size = new System.Drawing.Size(285, 340);
             this.pdfViewer.TabIndex = 7;
             // 
             // bNextPage
             // 
-            this.bNextPage.Location = new System.Drawing.Point(579, 377);
+            this.bNextPage.Location = new System.Drawing.Point(244, 523);
             this.bNextPage.Name = "bNextPage";
             this.bNextPage.Size = new System.Drawing.Size(75, 23);
             this.bNextPage.TabIndex = 8;
-            this.bNextPage.Text = "Next Page";
+            this.bNextPage.Text = "Next";
             this.bNextPage.UseVisualStyleBackColor = true;
-            this.bNextPage.Click += new System.EventHandler(bNextPage_Click);
+            this.bNextPage.Click += new System.EventHandler(this.bNextPage_Click);
+            // 
+            // gbPDF
+            // 
+            this.gbPDF.Controls.Add(this.pdfViewer);
+            this.gbPDF.Location = new System.Drawing.Point(42, 153);
+            this.gbPDF.Name = "gbPDF";
+            this.gbPDF.Size = new System.Drawing.Size(298, 364);
+            this.gbPDF.TabIndex = 9;
+            this.gbPDF.TabStop = false;
+            this.gbPDF.Text = "Preview";
+            // 
+            // bPrevPage
+            // 
+            this.bPrevPage.Location = new System.Drawing.Point(59, 523);
+            this.bPrevPage.Name = "bPrevPage";
+            this.bPrevPage.Size = new System.Drawing.Size(75, 23);
+            this.bPrevPage.TabIndex = 10;
+            this.bPrevPage.Text = "Previous";
+            this.bPrevPage.UseVisualStyleBackColor = true;
+            // 
+            // cbPageSelected
+            // 
+            this.cbPageSelected.AutoSize = true;
+            this.cbPageSelected.Location = new System.Drawing.Point(149, 526);
+            this.cbPageSelected.Name = "cbPageSelected";
+            this.cbPageSelected.Size = new System.Drawing.Size(68, 17);
+            this.cbPageSelected.TabIndex = 11;
+            this.cbPageSelected.Text = "Selected";
+            this.cbPageSelected.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(727, 424);
+            this.ClientSize = new System.Drawing.Size(372, 558);
+            this.Controls.Add(this.cbPageSelected);
+            this.Controls.Add(this.bPrevPage);
+            this.Controls.Add(this.gbPDF);
             this.Controls.Add(this.bNextPage);
-            this.Controls.Add(this.pdfViewer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bCreatePDF);
             this.Controls.Add(this.tb_pages);
@@ -164,13 +199,13 @@ namespace pdfapp
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Baze PDF v1.1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.closing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewer)).EndInit();
+            this.gbPDF.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            this.form += new FormClosingEventHandler();
 
         }
 
@@ -187,6 +222,9 @@ namespace pdfapp
         private System.Windows.Forms.ToolStripMenuItem menu_close;
         private AxAcroPDFLib.AxAcroPDF pdfViewer;
         private System.Windows.Forms.Button bNextPage;
+        private GroupBox gbPDF;
+        private Button bPrevPage;
+        private CheckBox cbPageSelected;
     }
 }
 

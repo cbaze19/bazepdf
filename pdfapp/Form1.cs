@@ -17,10 +17,62 @@ namespace pdfapp
     public partial class MainWindow : Form
     {
         OpenFileDialog openPDF_Dialog;
+        int pdfCurrentPage = 1;
+        
+        List<int> selectedPages = new List<int>();
 
         public MainWindow()
         {
             InitializeComponent();
+            WindowSetup();
+        }
+
+        private void WindowSetup()
+        {
+            this.Height = 189;
+            bPrevPage.Click += new EventHandler(bPrevPage_Click);
+            cbPageSelected.CheckedChanged += CbPageSelected_CheckedChanged;
+        }
+
+        private void CbPageSelected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPageSelected.Checked && !selectedPages.Contains(pdfCurrentPage))
+            {
+                selectedPages.Add(pdfCurrentPage);
+                AddSelectedPages();
+            }
+            else if (!cbPageSelected.Checked && selectedPages.Contains(pdfCurrentPage))
+            {
+                selectedPages.Remove(pdfCurrentPage);
+                AddSelectedPages();
+            }
+            
+        }
+
+        private void AddSelectedPages()
+        {
+            tb_pages.Clear();
+            foreach (int page in selectedPages)
+            {
+                if (selectedPages.IndexOf(page) == 0)
+                    tb_pages.AppendText(page.ToString());
+                else
+                    tb_pages.AppendText(","+page.ToString());
+            }
+        }
+
+        private void bPrevPage_Click(object sender, EventArgs e)
+        {
+                
+            pdfCurrentPage = pdfCurrentPage - 1;
+            if (selectedPages.Contains(pdfCurrentPage))
+            {
+                cbPageSelected.Checked = true;
+            }
+            else
+            {
+                cbPageSelected.Checked = false;
+            }
         }
 
         private void bSelectPDF_Click(Object sender, EventArgs e)
@@ -35,12 +87,20 @@ namespace pdfapp
             {
                 try
                 {
+                    this.Height = 600;
+
                     lPathPDF.Text = openPDF_Dialog.FileName.ToString();
                     tb_pages.Enabled = true;
                     bCreatePDF.Enabled = true;
+                    
+                    
                     pdfViewer.src = openPDF_Dialog.FileName;
                     pdfViewer.setShowScrollbars(false);
-                    pdfViewer.setShowToolbar(true);
+                    pdfViewer.setShowToolbar(false);
+                    pdfViewer.setPageMode("PDUseBookmarks");
+                    pdfViewer.Focus();
+                    tb_pages.Focus();
+                    gbPDF.Enabled = false;
                 }
                 catch (Exception ex)
                 {
@@ -110,6 +170,7 @@ namespace pdfapp
                             
                             Console.Out.WriteLine(extracted_pdf_name);
                             document = new Document(reader.GetPageSizeWithRotation(pages[0]));
+                            
                             pdfCopyProvider = new PdfCopy(document, new FileStream(extracted_pdf_name, FileMode.Create));
                             document.Open();
 
@@ -229,10 +290,19 @@ namespace pdfapp
         private void bNextPage_Click(object sender, EventArgs e)
         {
             pdfViewer.gotoNextPage();
+            pdfCurrentPage = pdfCurrentPage + 1;
+            if (selectedPages.Contains(pdfCurrentPage))
+            {
+                cbPageSelected.Checked = true;
+            }
+            else
+            {
+                cbPageSelected.Checked = false;
+            }
         }
 
         
-        private void closing(object sender, FormClosedEventArgs e)
+        private void closing(object sender, FormClosingEventArgs e)
         {
             bSelectPDF.Focus();
             Console.Out.WriteLine("Form Closing!");
