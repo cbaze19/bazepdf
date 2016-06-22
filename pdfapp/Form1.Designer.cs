@@ -52,7 +52,7 @@ namespace pdfapp
             // 
             // bSelectPDF
             // 
-            this.bSelectPDF.Location = new System.Drawing.Point(70, 98);
+            this.bSelectPDF.Location = new System.Drawing.Point(37, 35);
             this.bSelectPDF.Name = "bSelectPDF";
             this.bSelectPDF.Size = new System.Drawing.Size(94, 40);
             this.bSelectPDF.TabIndex = 0;
@@ -63,7 +63,7 @@ namespace pdfapp
             // lPathPDF
             // 
             this.lPathPDF.AutoSize = true;
-            this.lPathPDF.Location = new System.Drawing.Point(7, 38);
+            this.lPathPDF.Location = new System.Drawing.Point(147, 49);
             this.lPathPDF.Name = "lPathPDF";
             this.lPathPDF.Size = new System.Drawing.Size(118, 13);
             this.lPathPDF.TabIndex = 1;
@@ -72,7 +72,7 @@ namespace pdfapp
             // tb_pages
             // 
             this.tb_pages.Enabled = false;
-            this.tb_pages.Location = new System.Drawing.Point(50, 66);
+            this.tb_pages.Location = new System.Drawing.Point(191, 90);
             this.tb_pages.Name = "tb_pages";
             this.tb_pages.Size = new System.Drawing.Size(290, 20);
             this.tb_pages.TabIndex = 2;
@@ -80,7 +80,7 @@ namespace pdfapp
             // bCreatePDF
             // 
             this.bCreatePDF.Enabled = false;
-            this.bCreatePDF.Location = new System.Drawing.Point(201, 98);
+            this.bCreatePDF.Location = new System.Drawing.Point(37, 79);
             this.bCreatePDF.Name = "bCreatePDF";
             this.bCreatePDF.Size = new System.Drawing.Size(94, 40);
             this.bCreatePDF.TabIndex = 3;
@@ -91,7 +91,7 @@ namespace pdfapp
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 69);
+            this.label1.Location = new System.Drawing.Point(148, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace pdfapp
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(372, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(633, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,12 +137,12 @@ namespace pdfapp
             this.pdfViewer.Location = new System.Drawing.Point(6, 18);
             this.pdfViewer.Name = "pdfViewer";
             this.pdfViewer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewer.OcxState")));
-            this.pdfViewer.Size = new System.Drawing.Size(285, 340);
+            this.pdfViewer.Size = new System.Drawing.Size(596, 641);
             this.pdfViewer.TabIndex = 7;
             // 
             // bNextPage
             // 
-            this.bNextPage.Location = new System.Drawing.Point(244, 523);
+            this.bNextPage.Location = new System.Drawing.Point(348, 794);
             this.bNextPage.Name = "bNextPage";
             this.bNextPage.Size = new System.Drawing.Size(75, 23);
             this.bNextPage.TabIndex = 8;
@@ -153,16 +153,16 @@ namespace pdfapp
             // gbPDF
             // 
             this.gbPDF.Controls.Add(this.pdfViewer);
-            this.gbPDF.Location = new System.Drawing.Point(42, 153);
+            this.gbPDF.Location = new System.Drawing.Point(12, 126);
             this.gbPDF.Name = "gbPDF";
-            this.gbPDF.Size = new System.Drawing.Size(298, 364);
+            this.gbPDF.Size = new System.Drawing.Size(608, 665);
             this.gbPDF.TabIndex = 9;
             this.gbPDF.TabStop = false;
             this.gbPDF.Text = "Preview";
             // 
             // bPrevPage
             // 
-            this.bPrevPage.Location = new System.Drawing.Point(59, 523);
+            this.bPrevPage.Location = new System.Drawing.Point(163, 794);
             this.bPrevPage.Name = "bPrevPage";
             this.bPrevPage.Size = new System.Drawing.Size(75, 23);
             this.bPrevPage.TabIndex = 10;
@@ -172,7 +172,7 @@ namespace pdfapp
             // cbPageSelected
             // 
             this.cbPageSelected.AutoSize = true;
-            this.cbPageSelected.Location = new System.Drawing.Point(149, 526);
+            this.cbPageSelected.Location = new System.Drawing.Point(253, 797);
             this.cbPageSelected.Name = "cbPageSelected";
             this.cbPageSelected.Size = new System.Drawing.Size(68, 17);
             this.cbPageSelected.TabIndex = 11;
@@ -184,7 +184,7 @@ namespace pdfapp
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(372, 558);
+            this.ClientSize = new System.Drawing.Size(633, 834);
             this.Controls.Add(this.cbPageSelected);
             this.Controls.Add(this.bPrevPage);
             this.Controls.Add(this.gbPDF);

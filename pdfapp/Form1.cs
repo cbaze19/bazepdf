@@ -18,7 +18,9 @@ namespace pdfapp
     {
         OpenFileDialog openPDF_Dialog;
         int pdfCurrentPage = 1;
-        
+        PdfReader pdfReader;
+        int numpages;
+
         List<int> selectedPages = new List<int>();
 
         public MainWindow()
@@ -29,9 +31,11 @@ namespace pdfapp
 
         private void WindowSetup()
         {
-            this.Height = 189;
             bPrevPage.Click += new EventHandler(bPrevPage_Click);
             cbPageSelected.CheckedChanged += CbPageSelected_CheckedChanged;
+            bPrevPage.Enabled = false;
+            bNextPage.Enabled = false;
+            cbPageSelected.Enabled = false;
         }
 
         private void CbPageSelected_CheckedChanged(object sender, EventArgs e)
@@ -45,8 +49,7 @@ namespace pdfapp
             {
                 selectedPages.Remove(pdfCurrentPage);
                 AddSelectedPages();
-            }
-            
+            } 
         }
 
         private void AddSelectedPages()
@@ -63,20 +66,26 @@ namespace pdfapp
 
         private void bPrevPage_Click(object sender, EventArgs e)
         {
+            if (pdfCurrentPage != 1)
+            {
+                pdfViewer.gotoPreviousPage();
+                pdfCurrentPage = pdfCurrentPage - 1;
+                if (selectedPages.Contains(pdfCurrentPage))
+                {
+                    cbPageSelected.Checked = true;
+                }
+                else
+                {
+                    cbPageSelected.Checked = false;
+                }
+            }
                 
-            pdfCurrentPage = pdfCurrentPage - 1;
-            if (selectedPages.Contains(pdfCurrentPage))
-            {
-                cbPageSelected.Checked = true;
-            }
-            else
-            {
-                cbPageSelected.Checked = false;
-            }
+            
         }
 
         private void bSelectPDF_Click(Object sender, EventArgs e)
         {
+            
 
             openPDF_Dialog = new OpenFileDialog();
             
@@ -87,13 +96,17 @@ namespace pdfapp
             {
                 try
                 {
-                    this.Height = 600;
+
+                    pdfReader = new PdfReader(openPDF_Dialog.FileName.ToString());
+                    numpages = pdfReader.NumberOfPages;
 
                     lPathPDF.Text = openPDF_Dialog.FileName.ToString();
                     tb_pages.Enabled = true;
                     bCreatePDF.Enabled = true;
-                    
-                    
+                    bPrevPage.Enabled = true;
+                    bNextPage.Enabled = true;
+                    cbPageSelected.Enabled = true;
+
                     pdfViewer.src = openPDF_Dialog.FileName;
                     pdfViewer.setShowScrollbars(false);
                     pdfViewer.setShowToolbar(false);
@@ -190,6 +203,13 @@ namespace pdfapp
                             lPathPDF.Text = "No PDF File Selected...";
 
                             MessageBox.Show($"PDF Created at: {extracted_pdf_name}");
+
+                            pdfViewer.LoadFile("meh.pdf");
+                            selectedPages.Clear();
+                            cbPageSelected.Checked = false;
+                            bPrevPage.Enabled = false;
+                            bNextPage.Enabled = false;
+                            cbPageSelected.Enabled = false;
                         }
                     }
                     catch (Exception ex)
@@ -289,16 +309,22 @@ namespace pdfapp
 
         private void bNextPage_Click(object sender, EventArgs e)
         {
-            pdfViewer.gotoNextPage();
-            pdfCurrentPage = pdfCurrentPage + 1;
-            if (selectedPages.Contains(pdfCurrentPage))
+            
+            if (pdfCurrentPage != numpages)
             {
-                cbPageSelected.Checked = true;
+                pdfViewer.gotoNextPage();
+                pdfCurrentPage = pdfCurrentPage + 1;
+                if (selectedPages.Contains(pdfCurrentPage))
+                {
+                    cbPageSelected.Checked = true;
+                }
+                else
+                {
+                    cbPageSelected.Checked = false;
+                }
             }
-            else
-            {
-                cbPageSelected.Checked = false;
-            }
+                
+            
         }
 
         
